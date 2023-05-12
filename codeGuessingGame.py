@@ -81,3 +81,11 @@ def generateCode():
 # as a language requirement to structure code 
 # instead of curly braces Python uses
 # indentation... seems foreign but ok
+
+def guessCode():
+    # now we need to implement the guessing 
+    #  functionality, we can do this using the input 
+    #  function
+    guess = input("Guess: ").split(" ")
+    # the above will convert the entry field from 
+    # "1 2 3 4" -> [1, 2, 3, 4]
