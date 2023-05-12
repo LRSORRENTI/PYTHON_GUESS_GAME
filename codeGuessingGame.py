@@ -148,7 +148,9 @@ def checkCode(guess, realCode):
    
    # First we define numberCounts to a dictionary
 
-   numberCounts = {}
+   numberCounts = {
+
+   }
 
    # Then we declare a variable for correct position:
 
@@ -162,3 +164,41 @@ def checkCode(guess, realCode):
 # of all of the numbers, do we have two '1's or one '3' etc..
 # We'll then store that in the color counts dictionary
    for number in realCode:
+      if number not in numberCounts:
+         # if number is not a key in dictionary,
+         # add it
+         numberCounts[number] = 0
+      numberCounts[number] += 1
+# Below we have a loop, and a function called zip
+# what zip does is combine the arguments passed in,
+# in our case: guess and realCode, and combine 
+# them into tuples, and return a list of them
+   for guessNumber, realNumber in zip(guess, realCode):
+      if guessNumber == realNumber:
+         # the above will check if a guessed number
+         # is correct at the same position
+         correctPosition += 1
+         # then we decrease the count from the 
+         # number counts dictionary with -=
+         # because we need to indicate that this 
+         # number we just found is in the correct 
+         # position, that way we don't count it with 
+         # the colors in the incorrect position
+         numberCounts[guessNumber] -= 1
+   for guessNumber, realNumber in zip(guess, realNumber):
+      if guessNumber in numberCounts and numberCounts[guessNumber] > 0:
+         # for example if we have: 
+         # real[3, 1, 1, 1]
+         # guess[3, 2, 2, 2]
+         # we need to indicate to the user that 
+         # they have one number in the correct index,
+         # and zero in the incorrect position
+         incorrectPosition += 1
+         # then we subtract the number counts
+         numberCounts[guessNumber] -= 1
+         # Now we don't return that another number is in 
+         # the incorrect position
+      return correctPosition, incorrectPosition
+   
+   # Now we have the three main components of our game
+   # we need to now link them together with logic
