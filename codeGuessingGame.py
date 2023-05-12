@@ -86,6 +86,38 @@ def guessCode():
     # now we need to implement the guessing 
     #  functionality, we can do this using the input 
     #  function
-    guess = input("Guess: ").split(" ")
+    
+    # Up first we set up a while loop, in case there 
+    # is not a valid guess, it will loop until there is 
+    while True: 
+     guess = input("Guess: ").split(" ")
     # the above will convert the entry field from 
     # "1 2 3 4" -> [1, 2, 3, 4]
+
+    # we also need a conditional check to see if 
+    # this list length is equal to four 
+
+     if len(guess) != LENGTH_NUM_CODE:
+       # also note string interpolation in Python is 
+       # used by prefixing 'f' before string, then 
+       # just like template literals in JS it's 
+       # {variableName}
+       print(f"Error: Guess input requires {LENGTH_NUM_CODE} numbers")
+       # below add continue, which brings us to the top 
+       # of the loop
+       continue
+     
+     # we also need a check for whether or not the guess 
+     # includes valid numbers to be guessed
+
+     for number in guess:
+        # implement check to see if number is valid
+        if number not in NUM_CODES:
+           print(f"Invalid number: {number}. Try again")
+           break
+        # if we make it past the break statement, that 
+        # means the numbers in the input field were valid
+     else:
+        break;
+
+     return guess
