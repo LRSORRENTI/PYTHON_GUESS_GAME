@@ -42,17 +42,42 @@
 #  looking for a way to generate 
 # random numbers in Python, the 
 # random module is a great option.
-
 import random
 
-
 # initialize an array to house the code to guess
-NUM_CODE = [1, 2, 3, 4, 5];
-
+NUM_CODES = [1, 2, 3, 4, 5]
 
 # define constant variable which contains starting 
 # number of attempts
-ATTEMPTS = 10;
+ATTEMPTS = 10
 
-print(ATTEMPTS)
+# intitalize the length of the code to four, 
+# can also increase value to change difficulty
+LENGTH_NUM_CODE = 4
 
+# below function will generate the code 
+def generateCode():
+    # first set code to empty list, in python 
+    # list is a data structure that can store a 
+    # collection of items. Items in a list can be
+    # of any type, including strings, integers, 
+    # floats, and objects. Lists are ordered, 
+    # which means that the items in a list have
+    # a specific position. Lists are mutable, which
+    # means that the items in a list can be changed.
+    myCode = []
+    # below use a loop, utilizing an _ to signify that 
+    # it doesn't matter what iteration it's on, an anonymous 
+    # variable 
+    for _ in range(LENGTH_NUM_CODE):
+        # below we use that random module we imported 
+        # to get a random number from NUM_CODES
+        number = random.choice(NUM_CODES)
+        # then append that num using .append
+        myCode.append(number)
+    return myCode
+
+# As an additional note, apparently Python requires indentation
+# as a language requirement to structure code 
+# instead of curly braces Python uses
+# indentation... seems foreign but ok
