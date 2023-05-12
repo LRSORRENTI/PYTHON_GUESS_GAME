@@ -44,6 +44,11 @@
 # random module is a great option.
 import random
 
+# Note: In Python, when naming constants, it's 
+# normal convention to name a constant variable
+# using all uppercase like: MYCONSTVAR = 1 
+# MYCONSTVAR should never change
+
 # initialize an array to house the code to guess
 NUM_CODES = [1, 2, 3, 4, 5]
 
@@ -56,6 +61,10 @@ ATTEMPTS = 10
 LENGTH_NUM_CODE = 4
 
 # below function will generate the code 
+# note in python, 'def' is used prefixed to functions
+# this keyword is married to functions exclusively
+# you would never prefix 'def' to anything other than 
+# function declarations
 def generateCode():
     # first set code to empty list, in python 
     # list is a data structure that can store a 
@@ -81,7 +90,7 @@ def generateCode():
 # as a language requirement to structure code 
 # instead of curly braces Python uses
 # indentation... seems foreign but ok
-
+print("hello world")
 def guessCode():
     # now we need to implement the guessing 
     #  functionality, we can do this using the input 
@@ -118,6 +127,38 @@ def guessCode():
         # if we make it past the break statement, that 
         # means the numbers in the input field were valid
      else:
+        # the below will break out of the while loop
         break;
 
      return guess
+    
+# now we need a way to check the code: 
+
+def checkCode(guess, realCode): 
+   # this is where we're going to check the numbers
+   # to see how many are correct
+   # Step 1 is check which numbers are in the correct
+   # postion
+
+   # Step 2 is to check which numbers are in the incorrect 
+   # position
+
+   # The checking order is required, otherwise we could 
+   # double count the number
+   
+   # First we define numberCounts to a dictionary
+
+   numberCounts = {}
+
+   # Then we declare a variable for correct position:
+
+   correctPosition = 0
+
+   # Then we declare a variable for incorrect position:
+
+   incorrectPosition = 0
+
+# then we need to use a forloop to keep track of the counts 
+# of all of the numbers, do we have two '1's or one '3' etc..
+# We'll then store that in the color counts dictionary
+   for number in realCode:
