@@ -1,3 +1,4 @@
+import hello_world
 import random
 
 
@@ -52,16 +53,12 @@ def check_Code(guess, real_code):
     return correct_pos, incorrect_pos
     
 def determine_Winner():
-      print(f"""This is a code guessing game, you have {TRIES} to guess")
-      ("the input. 
-      
-       The 'Guess:' key input should follow this structure:")
+      print(f"""             This is a code guessing game, you have {TRIES} attempts to guess
+             the input. The 'Guess:' key input should follow this structure:
 
-       ("R G B Y")
-
-       Enter / Return
-
-       The valid nunbers to guess are:""", *COLORS)
+             R G B Y + Enter / Return 
+             
+             The valid characters to guess are:""", *COLORS)
 
       code = generate_Code()
 
