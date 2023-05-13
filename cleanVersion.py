@@ -17,7 +17,9 @@ def generate_Code():
 
 def guess_Code():
        while True: 
-        guess = input("Guess: ").upper().split(" ")
+        guess = input("""
+        
+        Guess: """).upper().split(" ")
 
         if len(guess) != CODE_LENGTH:
               print(f"Error: Guess input requires {CODE_LENGTH} colors")
@@ -58,9 +60,7 @@ def determine_Winner():
 
              R G B Y + Enter / Return 
 
-             The valid characters to guess are:
-             
-             """, *COLORS)
+             The valid characters to guess are:""", *COLORS)
 
       code = generate_Code()
 
@@ -74,9 +74,12 @@ def determine_Winner():
          break
         
         print(f"""
+            ________________________________
             Correct Positions: {correct_pos} 
-
-            Incorrect Positions {incorrect_pos}""")
+            ________________________________
+            Incorrect Positions {incorrect_pos}
+            
+            """)
 
       else: 
           print("You ran out of attempts! The code was:", *code  )
