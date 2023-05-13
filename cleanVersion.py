@@ -7,14 +7,14 @@ TRIES = 10
 
 CODE_LENGTH = 4
 
-def generateCode():
+def generate_Code():
       code = []
       for _ in range(CODE_LENGTH):
             color = random.choice(COLORS)
             code.append(color)
       return code
 
-def guessCode():
+def guess_Code():
        while True: 
         guess = input("Guess: ").upper().split(" ")
 
@@ -29,7 +29,7 @@ def guessCode():
             break;
        return guess
 
-def checkCode(guess, real_code):
+def check_Code(guess, real_code):
     color_counts = {}
     correct_pos = 0
     incorrect_pos = 0
@@ -51,16 +51,24 @@ def checkCode(guess, real_code):
 
     return correct_pos, incorrect_pos
     
-def determineWinner():
-      print(f"Code guessing game, you have {TRIES} to guess correctly")
-      print("The valid nunbers to guess are:", *COLORS)
+def determine_Winner():
+      print(f"""This is a code guessing game, you have {TRIES} to guess")
+      ("the input. 
+      
+       The 'Guess:' key input should follow this structure:")
 
-      code = generateCode()
+       ("R G B Y")
+
+       Enter / Return
+
+       The valid nunbers to guess are:""", *COLORS)
+
+      code = generate_Code()
 
       for attempts in range(1, TRIES + 1):
-        guess = guessCode()
+        guess = guess_Code()
         
-        correct_pos, incorrect_pos = checkCode(guess, code)
+        correct_pos, incorrect_pos = check_Code(guess, code)
 
         if correct_pos == CODE_LENGTH:
          print(f"You guess the code in {attempts} attempts!")
@@ -74,7 +82,7 @@ def determineWinner():
       if __name__ == "__main__":
       # the above confirms we're directly running 
       # the python file
-        determineWinner()
+        determine_Winner()
 
-determineWinner()
+determine_Winner()
 
