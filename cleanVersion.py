@@ -57,8 +57,10 @@ def determine_Winner():
              the input. The 'Guess:' key input should follow this structure:
 
              R G B Y + Enter / Return 
+
+             The valid characters to guess are:
              
-             The valid characters to guess are:""", *COLORS)
+             """, *COLORS)
 
       code = generate_Code()
 
@@ -71,7 +73,10 @@ def determine_Winner():
          print(f"You guess the code in {attempts} attempts!")
          break
         
-        print(f"Correct Positions: {correct_pos} | Incorrect Positions {incorrect_pos}")
+        print(f"""
+            Correct Positions: {correct_pos} 
+
+            Incorrect Positions {incorrect_pos}""")
 
       else: 
           print("You ran out of attempts! The code was:", *code  )
